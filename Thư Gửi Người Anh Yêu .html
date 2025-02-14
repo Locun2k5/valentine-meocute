@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine cho Ngọc</title>
+    <style>
+        body {
+            background-color: white;
+            background-color: #ffcccb;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        .message, .thank-you-message {
+            font-size: 24px;
+            color: #d63384;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: float 4s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        .envelope {
+            background: white;
+            border: 3px solid red;
+            padding: 10px;
+            color: red;
+            background: red;
+            width: 100px;
+            height: 60px;
+            background: #d63384;
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .small-heart {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+            border-radius: 50%;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="envelope" onclick="openMessage()"><span style='font-size: 2em;'>💌</span>
+</div>
+    <div class="message">
+        Chúc mừng Valentine, Ngọc yêu dấu! 💖<br><br>
+        Tớ chúc bạn nhỏ của tớ sẽ có thật nhiều niềm vui, luôn vui vẻ, hạnh phúc.<br>
+        Tớ mong rằng lời chúc này sẽ khiến cậu vui.<br>
+        Tớ rất mong rằng năm sau và nhiều năm sau nữa người tớ chúc vẫn sẽ là cậu.<br>
+        Mai yeuuuu > 3
+        <br><br>
+        <div class="small-heart" onclick="showThankYou()">❤️</div>
+    </div>
+    <div class="thank-you-message">Cảm ơn vì đã đến bên cạnh anh 💕</div>
+    
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            document.body.appendChild(heart);
+            
+            const left = Math.random() * window.innerWidth;
+            heart.style.left = `${left}px`;
+            heart.style.top = `100vh`;
+            heart.style.fontSize = `${Math.random() * 20 + 10}px`;
+            heart.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+        
+        setInterval(createHeart, 300);
+        
+        function openMessage() {
+            document.querySelector(".message").style.display = "block";
+            document.querySelector(".envelope").style.display = "none";
+        }
+
+        function showThankYou() {
+            document.querySelector(".thank-you-message").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
