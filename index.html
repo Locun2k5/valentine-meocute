@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xin Lỗi Em</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+    <script>
+        const messages = [
+            "Anh xin lỗi pé meo",
+            "Anh biết mình sai rồi... 😔",
+            "Đừng giận anh nữa nha, được không? 🥺",
+            "Cảm ơn đã tha thứ cho anh",
+            "Em là người quan trọng nhất với anh ❤️",
+            "Yêu em nhiều lắm! 💖",
+            "(Từ nay anh sẽ không nói những lời như vậy nữa .)"
+        ];
+        let index = 0;
+
+        function showMessage() {
+            if (index < messages.length) {
+                document.getElementById("message").innerText = messages[index];
+                index++;
+            } else {
+                index = 0; // Reset lại nếu hết tin nhắn
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="message">Thư Xin lỗi meo</div>
+    <button onclick="showMessage()">📩</button>
+</body>
+
+</html>
